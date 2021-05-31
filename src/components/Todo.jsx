@@ -1,29 +1,46 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
+import TodoList from "./TodoList";
 const Todo = () => {
-  return (
-    <TodoContainer>
-      <Header>
-        <h3>Todo</h3>
-      </Header>
+  const [todos, setTodos] = useState(["sleep", false]);
+  const [value, setValue] = useState("");
 
-      <Todos></Todos>
-      <button>add</button>
-    </TodoContainer>
+  const addTodo = (text) => {
+    const newTodos = [...todos, [text]];
+    setTodos(newTodos);
+  };
+  const markTodo = (index) => {
+    const newTodos = [...todos];
+	  console.log(newTodos[index])
+   // newTodos[index].isDone = true;
+    setTodos(newTodos);
+  };
+
+  const removeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
+  const submitForm = (event) => {
+    event.preventDefault();
+    addTodo(value);
+    console.log(todos, value);
+  };
+  return (
+    <div>
+      {todos.map((todo, index) => (
+        <TodoList key={index} todo={todo} markTodo={markTodo} removeTodo={removeTodo} />
+      ))}
+      <form onSubmit={submitForm}>
+        <label htmlFor="todoinput">Enter a todo</label>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <button type="submit">+</button>
+      </form>
+    </div>
   );
 };
 
 export default Todo;
-
-const TodoContainer = styled.div`
-  height: 400px;
-  width: 30vw;
-  border-radius: 15px;
-  margin: 0 20px;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 40px rgba(0, 0, 0, 0.09),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-`;
-const Todos = styled.div``;
-const Header = styled.div``;

@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Weather from "./components/Weather";
-import Todo from './components/Todo';
-import Notes from './components/Notes';
+import Todo from "./components/Todo";
+import Notes from "./components/Notes";
 import "./App.css";
 import styled from "styled-components";
 
 function App() {
   return (
     <div className="App">
-	  <MainContainer>
-      <Header />
-	  <Stuff>
-      <Weather />
-      <Todo />
-	  < Notes />
-	  </Stuff>
-	  </MainContainer>
+      <MainContainer>
+        <Header />
+        <Todo />
+      </MainContainer>
     </div>
   );
 }
@@ -24,13 +20,6 @@ function App() {
 export default App;
 
 const MainContainer = styled.div`
-display:flex;
-flex-direction:column;
+  display: flex;
+  flex-direction: column;
 `;
-
-const Stuff = styled.div`
-display:flex;
-`;
-
-
-

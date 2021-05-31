@@ -4,12 +4,13 @@ import styled from "styled-components";
 const Weather = () => {
   let [weatherText, setWeatherText] = useState("");
   let [locale, setLocation] = useState([]);
-
+useEffect(()=>{
   navigator.geolocation.getCurrentPosition((pos) => {
     const lat = pos.coords.latitude;
     const lon = pos.coords.longitude;
     setLocation([Math.round(lat), Math.round(lon)]);
   });
+},[locale]);
   const [lat, lon] = locale;
   console.log(lat,lon);
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${
