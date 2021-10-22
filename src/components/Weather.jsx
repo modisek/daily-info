@@ -2,34 +2,30 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Weather = () => {
-  let [weatherText, setWeatherText] = useState("");
-  let [locale, setLocation] = useState([]);
-useEffect(()=>{
-  navigator.geolocation.getCurrentPosition((pos) => {
-    const lat = pos.coords.latitude;
-    const lon = pos.coords.longitude;
-    setLocation([Math.round(lat), Math.round(lon)]);
-  });
-},[locale]);
-  const [lat, lon] = locale;
-  console.log(lat,lon);
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${
-    import.meta.env.VITE_API_KEY
-  }&units=metric`;
+    let [weatherText, setWeatherText] = useState("");
 
-  useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setWeatherText(data.main.temp));
-  }, []);
-  return (
-    <Container>
-      <Icon src="http://openweathermap.org/img/wn/10d@2x.png"></Icon>
-      <TextContainer>
-        <p>{Math.round(weatherText)}&deg;C</p>
-      </TextContainer>
-    </Container>
-  );
+    const lat = 24.6282
+    const lon = 25.9231
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_API_KEY
+        }&units=metric`;
+
+    //  console.log(url)
+
+    useEffect(() => {
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => setWeatherText(data.main.temp));
+    }, []);
+
+    //console.log(weatherText)
+    return (
+        <Container>
+            <Icon src="http://openweathermap.org/img/wn/10d@2x.png"></Icon>
+            <TextContainer>
+                <p>{Math.round(weatherText)}&deg;C</p>
+            </TextContainer>
+        </Container>
+    );
 };
 
 export default Weather;

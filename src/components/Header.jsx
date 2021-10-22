@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 const Header = () => {
-  return (
-    <Container>
-      <h2>{new Date().toLocaleDateString("default", { weekday: "long" })}</h2>
-    </Container>
-  );
+    return (
+        <Container>
+            <h2>{new Date().toLocaleDateString("default", { month: 'short', weekday: "long", day: "numeric" })}</h2>
+        </Container>
+    );
 };
 
 export default Header;
