@@ -34,7 +34,8 @@ const Container = styled.div`
   height: 200px;
   width: 20vw;
   border-radius: 15%;
- margin: 0 30px; 
+ margin: 0 35px; 
+margin-top:25px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 40px rgba(0, 0, 0, 0.09),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
