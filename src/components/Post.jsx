@@ -7,7 +7,7 @@ const Post = (props) => {
         <div className="post">
             <h3>{title}</h3>
             <img src={urlToImage} height="230" width="330" />
-            <p>{author}</p>
+
             <p>{description}</p>
             <a className="post-link" href={url}>read more</a>
         </div>

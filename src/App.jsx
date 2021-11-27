@@ -5,17 +5,17 @@ import News from "./components/News";
 import "./App.css";
 import styled from "styled-components";
 function App() {
-    return (
-        <div className="App">
-            <MainContainer>
-                <Header />
-                <Content>
-                    <Weather />
-                    <News />
-                </Content>
-            </MainContainer>
-        </div>
-    );
+  return (
+    <div className="App">
+      <MainContainer>
+        <Header />
+        <Content>
+          <Weather />
+          <News />
+        </Content>
+      </MainContainer>
+    </div>
+  );
 }
 
 
